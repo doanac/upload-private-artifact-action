@@ -19,6 +19,11 @@ jobs:
           mkdir build
           echo 8675309 > build/test-artifact.txt
 
+      - name: Debug OIDC Claims
+        uses: github/actions-oidc-debugger@main
+        with:
+          audience: '${{ github.server_url }}/${{ github.repository_owner }}'
+
       - name: Upload artifacts
         id: upload
         uses: qualcomm-linux/upload-private-artifact-action@main
